@@ -1,0 +1,3 @@
+rootProject.name = 'LurkerEC'
+
+include ':app'
