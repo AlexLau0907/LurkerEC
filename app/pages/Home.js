@@ -8,6 +8,8 @@ import {
   PixelRatio
 } from 'react-native';
 
+import ProductsListView from './components/ProductsListView'
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,7 @@ class Home extends Component {
   render() {
     return(
       <View>
+        <ProductsListView />
         <Text>Home Page</Text>
       </View>
     );

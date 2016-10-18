@@ -52,3 +52,5 @@ class ProductsListView extends Component {
       ); 
     }
 }
+
+export default ProductsListView
