@@ -4,10 +4,24 @@ import {
   ListView,
   Image,
   Text,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity,
+  PixelRatio
 } from 'react-native'
 
 const THUMB_URLS = [
+  require('./Thumbnails/like.png'),
+  require('./Thumbnails/dislike.png'),
+  require('./Thumbnails/call.png'),
+  require('./Thumbnails/fist.png'),
+  require('./Thumbnails/bandaged.png'),
+  require('./Thumbnails/flowers.png'),
+  require('./Thumbnails/heart.png'),
+  require('./Thumbnails/liking.png'),
+  require('./Thumbnails/party.png'),
+  require('./Thumbnails/poke.png'),
+  require('./Thumbnails/superlike.png'),
+  require('./Thumbnails/victory.png'),
   require('./Thumbnails/like.png'),
   require('./Thumbnails/dislike.png'),
   require('./Thumbnails/call.png'),
@@ -42,10 +56,12 @@ class ProductsListView extends Component {
 
     _renderRow=(rowData) => {
       return (
-        <View style={styles.row}>
-          <Image style={styles.thumb}source={rowData.url}/>
-          <Text>{rowData.index}</Text>
-        </View>
+        <TouchableOpacity onPress={() => alert('Product presseds')}>
+          <View style={styles.row}>
+            <Image style={styles.thumb}source={rowData.url}/>
+            <Text>{rowData.index}</Text>
+          </View>
+        </TouchableOpacity>
       )
     }
 
@@ -55,6 +71,9 @@ class ProductsListView extends Component {
           contentContainerStyle={styles.list}
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
+          initialListSize={21}
+          pageSize={3} // should be a multiple of the no. of visible cells per row
+          scrollRenderAheadDistance={500}
         />
       );
     }
@@ -65,18 +84,18 @@ const styles=StyleSheet.create({
     justifyContent: 'space-around',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    margin:0
   },
   row: {
-    width: 100,
-    height: 100,
+    width:50*PixelRatio.get(),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F6F6F6',
     borderColor: '#CCC',
     borderWidth: 1,
     borderRadius: 5,
-    margin: 3,
+    marginTop: 5,
   },
   thumb: {
     width: 64,

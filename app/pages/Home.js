@@ -18,7 +18,7 @@ class Home extends Component {
 
   render() {
     return(
-      <View style={styles.home}>
+      <View style={{flex:1}}>
         <TouchableOpacity style={styles.header}><Text>Header</Text></TouchableOpacity>
         <ProductsListView style={styles.productslist}/>
       </View>
@@ -26,24 +26,16 @@ class Home extends Component {
   }
 }
 const styles = StyleSheet.create({
-  home: {
-    flex:1,
-    margin: 0,
-    paddingTop: 20,
-  },
   header: {
     height:40,
     borderWidth: 1/PixelRatio.get(),
     borderColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',
-    margin:0
   },
   productslist: {
     flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'flex-start'
+    height: 500,
   }
 });
 export default Home;
