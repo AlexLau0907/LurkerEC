@@ -16,22 +16,21 @@ import Footer from './components/Footer';
 export default class App extends Component {
   constructor(props){
     super(props);
-    this.state={current: 'home'}
+    this.state={currentPage: 'Home'}
   }
-
   _navigate = (title) => {
-    this.setState({page: title});
+    this.setState({currentPage: title});
   }
 
   _renderPage = () => {
-    switch (this.state.page) {
-      case 'home':
+    switch (this.state.currentPage) {
+      case 'Home':
         return (<Home />);
         break;
-      case 'cart':
+      case 'Cart':
         return (<Cart />);
         break;
-      case 'personal':
+      case 'Personal':
         return (<Personal />);
         break;
       default:

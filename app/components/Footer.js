@@ -16,9 +16,9 @@ class Footer extends Component {
   render() {
     return (
       <View style={this.props.style || styles.footer}>
-        <Tab title='home' image={require('../images/首页.png')} navigate={this.props.navigate}/>
-        <Tab title='cart' image={require('../images/购物车.png')} navigate={this.props.navigate}/>
-        <Tab title='personal' image={require('../images/个人中心.png')} navigate={this.props.navigate}/>
+        <Tab title='Home' image={require('../images/首页.png')} navigate={this.props.navigate}/>
+        <Tab title='Cart' image={require('../images/购物车.png')} navigate={this.props.navigate}/>
+        <Tab title='Personal' image={require('../images/个人中心.png')} navigate={this.props.navigate}/>
       </View>
     );
   }
