@@ -5,10 +5,11 @@ import {
   Image,
   TouchableOpacity,
   NavigationExperimental,
-  PixelRatio
+  PixelRatio,
+  StyleSheet
 } from 'react-native';
 
-import ProductsListView from './components/ProductsListView'
+import ProductsListView from '../components/ProductsListView'
 
 class Home extends Component {
   constructor(props) {
@@ -17,12 +18,32 @@ class Home extends Component {
 
   render() {
     return(
-      <View>
-        <ProductsListView />
-        <Text>Home Page</Text>
+      <View style={styles.home}>
+        <TouchableOpacity style={styles.header}><Text>Header</Text></TouchableOpacity>
+        <ProductsListView style={styles.productslist}/>
       </View>
     );
   }
 }
-
+const styles = StyleSheet.create({
+  home: {
+    flex:1,
+    margin: 0,
+    paddingTop: 20,
+  },
+  header: {
+    height:40,
+    borderWidth: 1/PixelRatio.get(),
+    borderColor: 'gray',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin:0
+  },
+  productslist: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start'
+  }
+});
 export default Home;

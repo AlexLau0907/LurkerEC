@@ -42,9 +42,7 @@ export default class App extends Component {
   render() {
     return(
       <View style={styles.container}>
-        <View style={styles.container}>
         {this._renderPage()}
-        </View>
         <Footer style={styles.footer} navigate={this._navigate}/>
       </View>
     );
@@ -56,7 +54,9 @@ const styles=StyleSheet.create({
   container: {
     flex:1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#890',
+    margin: 0
   },
   footer: {
     flexDirection: 'row',
