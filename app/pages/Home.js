@@ -4,7 +4,8 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  NavigationExperimental
+  NavigationExperimental,
+  PixelRatio
 } from 'react-native';
 
 class Home extends Component {

@@ -85,7 +85,6 @@ class Button extends React.Component {
     const buttonStyles = [styles.button];
     const textStyles = [styles.text];
     const Touchable = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity;
-    alert('Button render');
     if (color && Platform.OS === 'ios') {
       textStyles.push({color: color});
     } else if (color) {
