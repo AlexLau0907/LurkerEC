@@ -44,7 +44,7 @@ class Home extends Component {
 }
 const styles = StyleSheet.create({
   header: {
-    height:40,
+    height:(Platform.OS === 'ios') ? 50: 40,
     paddingTop: (Platform.OS === 'ios') ? 20: 8,
     paddingBottom: 8,
     borderWidth: 1/PixelRatio.get(),
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 12
+    paddingBottom: 12,
   },
   headerTitle: {
     flex:1,

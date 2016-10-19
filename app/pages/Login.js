@@ -18,13 +18,13 @@ class Login extends Component {
 
   _login = () => {
     this.props.toggleLoginVisible();
-  } 
-  
+  }
+
   render() {
     return (
       <Modal
         animationType ={"slide"}
-        transparent={false}
+        transparent={true}
         visible={this.props.visible}
         onRequestClose={() => {}}
       >
@@ -35,9 +35,10 @@ class Login extends Component {
             <View style={styles.loginOperation}>
               <TouchableOpacity style={styles.loginBtn} onPress={this._login}><Text style={[BaseStyles.text]}>登陆</Text></TouchableOpacity>
             </View>
-          </View> 
+          </View>
         </TouchableOpacity>
-      </Modal>);
+      </Modal>
+    );
   }
 }
 
@@ -45,12 +46,14 @@ class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex:1,
+    backgroundColor: 'rgba(3, 3, 3, 0.8)',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   loginFrame: {
+    backgroundColor: '#FFF',
     borderRadius: 5,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: '#F6F6F6',
   },
   title: {
