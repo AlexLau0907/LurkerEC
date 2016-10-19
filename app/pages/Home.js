@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   headerLogin:{
-    width:40,
+    width:50,
     height:40,
     marginLeft: 8,
     alignItems: 'center',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingRight: 48
+    paddingRight: 58
   },
   headerText: {
     fontSize: 20,
