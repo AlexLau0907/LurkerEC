@@ -53,7 +53,7 @@ export default class App extends Component {
 const styles=StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor: '#890',
+    backgroundColor: '#1cadf7',
   },
   footer: {
     flexDirection: 'row',

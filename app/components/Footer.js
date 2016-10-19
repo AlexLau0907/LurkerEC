@@ -37,7 +37,7 @@ class Tab extends Component {
     return(
       <TouchableOpacity style={styles.tab} onPress={this._onPress}>
       <Image defaultSouce={require('../images/首页.png')} source={this.props.image} style={styles.tabImage}/>
-      <Text>{this.props.title}</Text>
+      <Text style={[BaseStyles.text]}>{this.props.title}</Text>
       </TouchableOpacity>
     );
   }
