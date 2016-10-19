@@ -6,7 +6,8 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  PixelRatio
+  PixelRatio,
+  Dimensions
 } from 'react-native'
 
 const THUMB_URLS = [
@@ -66,6 +67,7 @@ class ProductsListView extends Component {
     }
 
     render() {
+      console.log(Dimensions.get('window'));
       return(
         <ListView
           contentContainerStyle={styles.list}
@@ -88,7 +90,7 @@ const styles=StyleSheet.create({
     margin:0
   },
   row: {
-    width:50*PixelRatio.get(),
+    width: Dimensions.get('window').width/2-4,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F6F6F6',

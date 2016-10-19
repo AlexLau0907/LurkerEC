@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   NavigationExperimental,
   PixelRatio,
-  StyleSheet
+  StyleSheet,
+  Platform
 } from 'react-native';
 
 import ProductsListView from '../components/ProductsListView'
@@ -19,7 +20,9 @@ class Home extends Component {
   render() {
     return(
       <View style={{flex:1}}>
-        <TouchableOpacity style={styles.header}><Text>Header</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.header}>
+          <Text style={styles.headerText}>Header</Text>
+        </TouchableOpacity>
         <ProductsListView style={styles.productslist}/>
       </View>
     );
@@ -28,14 +31,19 @@ class Home extends Component {
 const styles = StyleSheet.create({
   header: {
     height:40,
+    paddingTop: (Platform.OS === 'ios') ? 20: 0,
+    paddingBottom: 8,
     borderWidth: 1/PixelRatio.get(),
     borderColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
   productslist: {
-    flex: 1,
-    height: 500,
+    flex: 1
   }
 });
 export default Home;
