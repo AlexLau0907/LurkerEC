@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import ProductsListView from '../components/ProductsListView';
+import CarouselExample from '../components/CarouselExample';
 import BaseStyles from '../infrastructures/BaseStyles';
 import Login from './Login';
 
@@ -37,6 +38,7 @@ class Home extends Component {
             <Text style={[styles.headerText, BaseStyles.text]}>Header</Text>
           </View>
         </View>
+        <CarouselExample />
         <ProductsListView style={styles.productslist}/>
       </View>
     );

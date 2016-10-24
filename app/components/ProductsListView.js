@@ -59,7 +59,7 @@ class ProductsListView extends Component {
       return (
         <TouchableOpacity onPress={() => alert('Product presseds')}>
           <View style={styles.row}>
-            <Image style={styles.thumb}source={rowData.url}/>
+            <Image style={styles.thumb} source={rowData.url}/>
             <Text>{rowData.index}</Text>
           </View>
         </TouchableOpacity>
