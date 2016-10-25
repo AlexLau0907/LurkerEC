@@ -25,7 +25,7 @@ class AsyncImage extends Component {
   }
 
   _fetch = (uri) => {
-    RNFetchBlob.fetch('GET', uri)
+    RNFetchBlob.fetch('GET', encodeURI(uri))
       .then((res) => {
         // the conversion is done in native code
         let base64Str = res.base64();
