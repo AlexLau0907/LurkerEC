@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import {
   View,
   Image
-} from 'react-native'
+} from 'react-native';
 
+import RNFetchBlob from 'react-native-fetch-blob';
 
 class AsyncImage extends Component {
   static popTypes = {
@@ -24,20 +25,18 @@ class AsyncImage extends Component {
   }
 
   _fetch = (uri) => {
-    fetch(uri)
-      .then((res) => res.blob())
-      .catch((err) => {
-        console.log(err);
+    RNFetchBlob.fetch('GET', uri)
+      .then((res) => {
+        // the conversion is done in native code
+        let base64Str = res.base64();
+        this.setState({ source: { uri: 'data:image/*;base64,' + base64Str } });
+        return;
       })
-      .then((imgBlob) => {
-        const objectURL = URL.createObjectURL(imgBlob);
-        const reader = new window.FileReader();
-        reader.readAsDataURL(imgBlob);
-        reader.onloadend = () => {
-          base64data = reader.result;
-          this.setState({ source: { uri: base64data } });
-        };
-      }).done();
+      // Status code is not 200
+      .catch((errorMessage, statusCode) => {
+        // error handling
+        console.log(errorMessage, statusCode);
+      })
   }
 
   render() {
