@@ -31,7 +31,7 @@ export default class CarouselExample extends Component {
         delay={2000}
         style={{width: width, height: 145, marginTop:4, marginBottom: 4}}
         autoplay
-        pageInfo
+        bullets
         currentPage={1}
         onAnimateNextPage={(p) => console.log(p)}
         >
