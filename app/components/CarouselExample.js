@@ -47,7 +47,7 @@ export default class CarouselExample extends Component {
           <View style={[{ backgroundColor: 'red' }, this.state.size]}>
             <AsyncImage
               placeHolder={require('../Swiper/img/2.jpg')}
-              source={{ url: 'http://www.uhubest.com/virgo-core/download/1462932906484.官网轮播图-2.png' }}
+              source={{ uri: 'http://www.uhubest.com/virgo-core/download/1462932906484.官网轮播图-2.png' }}
               style={{ width: width, height: 145 }} />
           </View>
         </TouchableWithoutFeedback>
