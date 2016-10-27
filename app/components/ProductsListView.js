@@ -10,6 +10,8 @@ import {
   Dimensions
 } from 'react-native'
 
+import AsyncImage from './AsyncImage'
+
 const THUMB_URLS = [
   require('./Thumbnails/like.png'),
   require('./Thumbnails/dislike.png'),
@@ -41,7 +43,7 @@ const THUMB_URLS = [
 
 const PRODUCTS_LIST = (() => THUMB_URLS.map((source,index, v) => ({
     "index": `Product ${index}`,
-    "url": source
+    "uri": {uri: 'http://www.uhubest.com/virgo-core/download/1476262352583.%E4%B8%BB%E5%9B%BE.jpg?w=270'}
   })))();
 
 
@@ -59,7 +61,7 @@ class ProductsListView extends Component {
       return (
         <TouchableOpacity onPress={() => alert('Product presseds')}>
           <View style={styles.row}>
-            <Image style={styles.thumb} source={rowData.url}/>
+            <AsyncImage style={styles.thumb} placeHolder={require('./Thumbnails/heart.png')} source={rowData.uri}/>
             <Text>{rowData.index}</Text>
           </View>
         </TouchableOpacity>
@@ -67,6 +69,7 @@ class ProductsListView extends Component {
     }
 
     render() {
+      console.log('ProductListView rendering');
       return(
         <ListView
           contentContainerStyle={styles.list}
