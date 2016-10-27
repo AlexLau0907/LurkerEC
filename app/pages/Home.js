@@ -27,7 +27,7 @@ class Home extends Component {
 
   render() {
     return(
-      <View style={{flex:1}}>
+      <View style={[BaseStyles.container]}>
         <Login styel={{flex:1}} visible={this.state.loginVisible} toggleLoginVisible = {this._toggleLoginVisible}>
         </Login>
         <View style={styles.header}>

@@ -12,12 +12,14 @@ import {
   View
 } from 'react-native';
 
-import App from './app/app'
+import App from './app/app';
+import YourApplication from './app/NavigationExperimental/NavigationCardStack-NavigationHeader-Tabs-example'
 
 export default class LurkerEC extends Component {
   render() {
     return (
-      <App />
+      // <App />
+      <YourApplication />
     );
   }
 }

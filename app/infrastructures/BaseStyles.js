@@ -1,5 +1,9 @@
 export default BaseStyles = {
-    text: {
-      color: '#FFF',
-    }
+  container: {
+    flex: 1,
+    backgroundColor: '#1cadf7',
+  },
+  text: {
+    color: '#FFF',
+  }
 } 

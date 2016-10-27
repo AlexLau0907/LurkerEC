@@ -8,51 +8,88 @@ import {
   NavigationExperimental
 } from 'react-native';
 
+const {
+  CardStack: NavigationCardStack,
+  StateUtils: NavigationStateUtils,
+} = NavigationExperimental;
+
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Personal from './pages/Personal';
 import Footer from './components/Footer';
 
-export default class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={currentPage: 'Home'}
+const initialState = {
+  index: 0,
+  key: 'App',
+  routes: [{ 'key': 'Home' }]
+};
+
+const NavigationReducer = (state = initialState, action) => {
+  if(NavigationStateUtils.has(state, action.key)) {
+    return NavigationStateUtils.jumpTo(state, action.key);
   }
-  _navigate = (title) => {
-    this.setState({currentPage: title});
+  switch (action.type) {
+    case 'push':
+      return NavigationStateUtils.push(state, { key: action.key });
+    case 'pop':
+      return state.index > 0 ? NavigationStateUtils.pop(state) : state;
+    default:
+      return state;
+  }
+}
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      navigationState: NavigationReducer(initialState, {})
+    }
   }
 
-  _renderPage = () => {
-    switch (this.state.currentPage) {
+  _handleAction = (action) => {
+    console.log(action);
+    const nextState = NavigationReducer(this.state.navigationState, action);
+    if(nextState === this.state.navigationState) {
+      return false;
+    }
+    this.setState({
+      navigationState: nextState
+    });
+    return true;
+  }
+
+  _renderScene = (sceneProps) => {
+    console.log(sceneProps);
+    switch (sceneProps.scene.route.key) {
       case 'Home':
         return (<Home />);
-        break;
       case 'Cart':
         return (<Cart />);
-        break;
       case 'Personal':
         return (<Personal />);
-        break;
       default:
-        return (<Home />)
-        break
+        return (<Home />);
     }
   }
 
   render() {
-    return(
+    return (
       <View style={styles.container}>
-        <View style={{flex: 1}}>{this._renderPage()}</View>
-        <Footer style={styles.footer} navigate={this._navigate}/>
+        <NavigationCardStack
+          navigationState={this.state.navigationState}
+          onNavigate={this._handleAction}
+          renderScene={this._renderScene}>
+        </NavigationCardStack>
+        <Footer style={styles.footer} handleAction={this._handleAction} />
       </View>
     );
   }
 
 };
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: '#1cadf7',
   },
   footer: {

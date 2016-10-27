@@ -7,6 +7,8 @@ import {
   NavigationExperimental
 } from 'react-native';
 
+import BaseStyles from '../infrastructures/BaseStyles';
+
 class Personal extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,7 @@ class Personal extends Component {
 
   render() {
     return(
-      <View>
+      <View style={BaseStyles.container} >
         <Text>Personal Page</Text>
       </View>
     );

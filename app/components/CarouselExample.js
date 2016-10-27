@@ -35,7 +35,7 @@ export default class CarouselExample extends Component {
         autoplay
         bullets
         currentPage={1}
-        onAnimateNextPage={(p) => console.log(p)}
+        onAnimateNextPage={()=>{}}
         >
         <View style={[{ backgroundColor: '#BADA55' }, this.state.size]}>
           <TouchableWithoutFeedback onPress={() => alert('Touched')}>

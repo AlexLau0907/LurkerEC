@@ -67,7 +67,6 @@ class ProductsListView extends Component {
     }
 
     render() {
-      console.log(Dimensions.get('window'));
       return(
         <ListView
           contentContainerStyle={styles.list}

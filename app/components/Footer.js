@@ -8,6 +8,8 @@ import {
   PixelRatio
 } from 'react-native'
 
+import BaseStyles from '../infrastructures/BaseStyles';
+
 class Footer extends Component {
   constructor(props) {
     super(props);
@@ -16,9 +18,9 @@ class Footer extends Component {
   render() {
     return (
       <View style={this.props.style || styles.footer}>
-        <Tab title='Home' image={require('../images/首页.png')} navigate={this.props.navigate}/>
-        <Tab title='Cart' image={require('../images/购物车.png')} navigate={this.props.navigate}/>
-        <Tab title='Personal' image={require('../images/个人中心.png')} navigate={this.props.navigate}/>
+        <Tab title='Home' image={require('../images/首页.png')} handleAction={this.props.handleAction}/>
+        <Tab title='Cart' image={require('../images/购物车.png')} handleAction={this.props.handleAction}/>
+        <Tab title='Personal' image={require('../images/个人中心.png')} handleAction={this.props.handleAction}/>
       </View>
     );
   }
@@ -30,7 +32,7 @@ class Tab extends Component {
   }
 
   _onPress = () => {
-    this.props.navigate(this.props.title);
+    this.props.handleAction({type: 'push', key: this.props.title});
   }
 
   render() {
