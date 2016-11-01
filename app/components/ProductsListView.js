@@ -10,7 +10,7 @@ import {
   Dimensions
 } from 'react-native'
 
-import AsyncImage from '../../components/AsyncImage'
+import AsyncImage from './AsyncImage'
 
 const THUMB_URLS = [
   require('./Thumbnails/like.png'),

@@ -10,9 +10,9 @@ import {
   Platform
 } from 'react-native';
 
-import ProductsListView from '../components/ProductsListView';
-import CarouselExample from '../../components/CarouselExample';
-import BaseStyles from '../infrastructures/BaseStyles';
+import ProductsListView from '../ProductsListView';
+import CarouselExample from '../CarouselExample';
+import BaseStyles from '../../constants/BaseStyles';
 import Login from './Login';
 
 class Home extends Component {

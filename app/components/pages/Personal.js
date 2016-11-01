@@ -7,7 +7,7 @@ import {
   NavigationExperimental
 } from 'react-native';
 
-import BaseStyles from '../infrastructures/BaseStyles';
+import BaseStyles from '../../constants/BaseStyles';
 
 class Personal extends Component {
   constructor(props) {

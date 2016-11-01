@@ -14,9 +14,9 @@ const {
   StateUtils: NavigationStateUtils,
 } = NavigationExperimental;
 
-import Home from '../components/Home';
-import Cart from '../components/Cart';
-import Personal from '../components/Personal';
+import Home from '../components/pages/Home';
+import Cart from '../components/pages/Cart';
+import Personal from '../components/pages/Personal';
 import Footer from '../components/Footer';
 
 import { push } from '../actions/navActions'
