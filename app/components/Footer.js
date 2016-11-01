@@ -8,7 +8,7 @@ import {
   PixelRatio
 } from 'react-native'
 
-import { PUSH_ROUTE } from '../constants/ActionTypes';
+import { CHANGE_TAB } from '../constants/ActionTypes';
 
 import BaseStyles from '../constants/BaseStyles';
 
@@ -34,7 +34,7 @@ class Tab extends Component {
   }
 
   _onPress = () => {
-    this.props.handleAction({type: PUSH_ROUTE, key: this.props.title});
+    this.props.handleAction({type: CHANGE_TAB, key: this.props.title});
   }
 
   render() {

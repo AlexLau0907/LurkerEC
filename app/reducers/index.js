@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import navReducer from './navAppReducer'
-import tabReducer from './tabReducer'
+import rootTabReducer from './rootTabReducer'
+import authReducer from './authReducer'
 
 const rootReducer = combineReducers({
-  navReducer,
-  tabReducer
+  rootTabReducer,
+  authReducer
 })
 
 export default rootReducer;

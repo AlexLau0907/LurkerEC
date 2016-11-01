@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -20,20 +20,32 @@ class Login extends Component {
     this.props.toggleLoginVisible();
   }
 
+  _getAuth = (user) => {
+    const {getAuth} = this.props
+    getAuth();
+  }
+
   render() {
+    const { authState } = this.props;
+    console.log(authState);
+    const {isAuth, user} = authState;
     return (
       <Modal
-        animationType ={"slide"}
+        animationType={"slide"}
         transparent={true}
         visible={this.props.visible}
-        onRequestClose={() => {}}
-      >
+        onRequestClose={() => { } }
+        >
         <TouchableOpacity style={styles.container} onPress={this.props.toggleLoginVisible}>
           <View style={styles.loginFrame}>
-            <View style={styles.title}><Text style={[BaseStyles.text]}>Welcome To Lurker</Text></View>
+            <View style={styles.title}>
+              <Text style={[BaseStyles.text]}>
+                Welcome {isAuth ? user : ' To Lurker'}
+              </Text>
+            </View>
             <Image style={styles.image} source={require('../images/cheer.png')} />
             <View style={styles.loginOperation}>
-              <TouchableOpacity style={styles.loginBtn} onPress={this._login}><Text style={[BaseStyles.text]}>登陆</Text></TouchableOpacity>
+              <TouchableOpacity style={styles.loginBtn} onPress={this._getAuth}><Text style={[BaseStyles.text]}>登陆</Text></TouchableOpacity>
             </View>
           </View>
         </TouchableOpacity>
@@ -45,7 +57,7 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: 'rgba(3, 3, 3, 0.8)',
     alignItems: 'center',
     justifyContent: 'center',
@@ -57,7 +69,7 @@ const styles = StyleSheet.create({
     borderColor: '#F6F6F6',
   },
   title: {
-    flex:1,
+    flex: 1,
     height: 40,
     backgroundColor: '#1cadf7',
     borderTopLeftRadius: 5,
@@ -67,7 +79,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 200,
-    height:200
+    height: 200
   },
   loginBtn: {
     height: 40,

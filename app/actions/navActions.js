@@ -14,9 +14,24 @@ export const pop = (route) => {
   }
 }
 
-export const changeTab = (action) => {
+export const changeTab = (tab) => {
   return {
     type: ActionTypes.CHANGE_TAB,
-    action
+    tab
   }
+}
+
+export const getAuth = (userName) => {
+  return (dispatch, getState) => {
+      //TODO: just for simulate the ansync
+      setTimeout(() => {
+        dispatch({
+          type: ActionTypes.USER_AUTH,
+          payload: {
+            isAuth: true,
+            user: 'alex'
+          }
+        })
+      }, 2000)
+    }
 }

@@ -14,13 +14,11 @@ const initialState = {
 
 export default navigationsState = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.PUSH_ROUTE:
-      if (NavigationStateUtils.has(state, action.route.key)) {
-        return NavigationStateUtils.jumpTo(state, action.route.key);
+    case ActionTypes.CHANGE_TAB:
+      if (NavigationStateUtils.has(state, action.tab.key)) {
+        return NavigationStateUtils.jumpTo(state, action.tab.key);
       }
-      return NavigationStateUtils.push(state, { key: action.route.key });
-    case ActionTypes.POP_ROUTE:
-      return state.index > 0 ? NavigationStateUtils.pop(state) : state;
+      return NavigationStateUtils.push(state, { key: action.tab.key });
     default:
       return state;
   }

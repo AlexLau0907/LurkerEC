@@ -14,6 +14,7 @@ import ProductsListView from '../ProductsListView';
 import CarouselExample from '../CarouselExample';
 import BaseStyles from '../../constants/BaseStyles';
 import Login from './Login';
+import LoginContainer from '../../containers/AuthContainer';
 
 class Home extends Component {
   constructor(props) {
@@ -28,8 +29,7 @@ class Home extends Component {
   render() {
     return(
       <View style={[BaseStyles.container]}>
-        <Login styel={{flex:1}} visible={this.state.loginVisible} toggleLoginVisible = {this._toggleLoginVisible}>
-        </Login>
+        <LoginContainer styel={{flex:1}} visible={this.state.loginVisible} toggleLoginVisible = {this._toggleLoginVisible} />
         <View style={styles.header}>
           <TouchableOpacity style={styles.headerLogin} onPress={this._toggleLoginVisible}>
             <Text style={[BaseStyles.text]}>Login</Text>
