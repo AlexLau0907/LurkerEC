@@ -44,6 +44,7 @@ export default class Carousel extends Component {
   constructor(props) {
     super(props);
     const size = { width: 0, height: 0 };
+    console.log('carousel cons')
     if (props.children) {
       const childrenLength = props.children.length ? props.children.length : 1;
       this.state = {

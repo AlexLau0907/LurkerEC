@@ -9,7 +9,7 @@ import {
   StyleSheet
 } from 'react-native'
 
-import BaseStyles from '../infrastructures/BaseStyles';
+import BaseStyles from '../../constants/BaseStyles';
 
 class Login extends Component {
   constructor(props) {

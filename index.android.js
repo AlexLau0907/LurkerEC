@@ -4,24 +4,10 @@
  * @flow
  */
 
-import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+  AppRegistry
 } from 'react-native';
 
 import App from './app/app';
-import YourApplication from './app/NavigationExperimental/NavigationCardStack-NavigationHeader-Tabs-example'
 
-export default class LurkerEC extends Component {
-  render() {
-    return (
-      // <App />
-      <YourApplication />
-    );
-  }
-}
-
-AppRegistry.registerComponent('LurkerEC', () => LurkerEC);
+AppRegistry.registerComponent('LurkerEC', () => App);

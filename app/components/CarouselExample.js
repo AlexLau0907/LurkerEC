@@ -34,7 +34,7 @@ export default class CarouselExample extends Component {
         style={{ width: width, height: 145, marginTop: 4, marginBottom: 4 }}
         autoplay
         bullets
-        currentPage={1}
+        currentPage={0}
         onAnimateNextPage={()=>{}}
         >
         <View style={[{ backgroundColor: '#BADA55' }, this.state.size]}>
@@ -44,15 +44,15 @@ export default class CarouselExample extends Component {
         </View>
 
         <TouchableWithoutFeedback onPress={() => alert('Touched')}>
-          <View style={[{ backgroundColor: 'red' }, this.state.size]}>
+          <View style={[{ backgroundColor: 'gray' }, this.state.size]}>
             <AsyncImage
-              placeHolder={require('../Swiper/img/2.jpg')}
+              placeHolder={require('./images/2.jpg')}
               source={{ uri: encodeURI('http://www.uhubest.com/virgo-core/download/1462932906484.官网轮播图-2.png') }}
               style={{ width: width, height: 145 }} />
           </View>
         </TouchableWithoutFeedback>
 
-        <View style={[{ backgroundColor: 'blue' }, this.state.size]}><Text>3</Text></View>
+        <View style={[{ backgroundColor: '#eee' }, this.state.size]}><Text>3</Text></View>
       </Carousel>
     );
   }

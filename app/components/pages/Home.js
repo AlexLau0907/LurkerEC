@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 import ProductsListView from '../components/ProductsListView';
-import CarouselExample from '../components/CarouselExample';
+import CarouselExample from '../../components/CarouselExample';
 import BaseStyles from '../infrastructures/BaseStyles';
 import Login from './Login';
 

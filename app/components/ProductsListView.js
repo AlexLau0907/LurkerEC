@@ -10,7 +10,7 @@ import {
   Dimensions
 } from 'react-native'
 
-import AsyncImage from './AsyncImage'
+import AsyncImage from '../../components/AsyncImage'
 
 const THUMB_URLS = [
   require('./Thumbnails/like.png'),
@@ -69,7 +69,6 @@ class ProductsListView extends Component {
     }
 
     render() {
-      console.log('ProductListView rendering');
       return(
         <ListView
           contentContainerStyle={styles.list}

@@ -8,7 +8,9 @@ import {
   PixelRatio
 } from 'react-native'
 
-import BaseStyles from '../infrastructures/BaseStyles';
+import { PUSH_ROUTE } from '../constants/ActionTypes';
+
+import BaseStyles from '../constants/BaseStyles';
 
 class Footer extends Component {
   constructor(props) {
@@ -18,9 +20,9 @@ class Footer extends Component {
   render() {
     return (
       <View style={this.props.style || styles.footer}>
-        <Tab title='Home' image={require('../images/首页.png')} handleAction={this.props.handleAction}/>
-        <Tab title='Cart' image={require('../images/购物车.png')} handleAction={this.props.handleAction}/>
-        <Tab title='Personal' image={require('../images/个人中心.png')} handleAction={this.props.handleAction}/>
+        <Tab title='Home' image={require('./images/首页.png')} handleAction={this.props.handleAction}/>
+        <Tab title='Cart' image={require('./images/购物车.png')} handleAction={this.props.handleAction}/>
+        <Tab title='Personal' image={require('./images/个人中心.png')} handleAction={this.props.handleAction}/>
       </View>
     );
   }
@@ -32,13 +34,13 @@ class Tab extends Component {
   }
 
   _onPress = () => {
-    this.props.handleAction({type: 'push', key: this.props.title});
+    this.props.handleAction({type: PUSH_ROUTE, key: this.props.title});
   }
 
   render() {
     return(
       <TouchableOpacity style={styles.tab} onPress={this._onPress}>
-      <Image defaultSouce={require('../images/首页.png')} source={this.props.image} style={styles.tabImage}/>
+      <Image defaultSouce={require('./images/首页.png')} source={this.props.image} style={styles.tabImage}/>
       <Text style={[BaseStyles.text]}>{this.props.title}</Text>
       </TouchableOpacity>
     );
