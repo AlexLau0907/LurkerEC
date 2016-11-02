@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { getAuth } from '../actions/navActions'
+import { getAuth, toggleLogin } from '../actions/navActions'
 import Login from '../components/pages/Login'
 
 const mapStateProps = (state) => {
@@ -11,6 +11,7 @@ const mapStateProps = (state) => {
 export default LoginContainer = connect(
   mapStateProps,
   {
-    getAuth: (user) => getAuth(user)
+    getAuth: (user) => getAuth(user),
+    toggleLogin: () => toggleLogin()
   }
 )(Login);

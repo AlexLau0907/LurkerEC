@@ -16,8 +16,14 @@ class Login extends Component {
     super(props);
   }
 
-  _login = () => {
-    this.props.toggleLoginVisible();
+  shouldComponentUpdate(nextProps, nextState) {
+    //to prevet login view re-render
+    return this.props.authState.loginVisible || nextProps.authState.loginVisible;
+  }
+
+  _toggleLogin = () => {
+    const { toggleLogin } = this.props;
+    toggleLogin();
   }
 
   _getAuth = (user) => {
@@ -26,17 +32,15 @@ class Login extends Component {
   }
 
   render() {
-    const { authState } = this.props;
-    console.log(authState);
-    const {isAuth, user} = authState;
+    const {isAuth, user, loginVisible} = this.props.authState;
     return (
       <Modal
         animationType={"slide"}
         transparent={true}
-        visible={this.props.visible}
+        visible={loginVisible}
         onRequestClose={() => { } }
         >
-        <TouchableOpacity style={styles.container} onPress={this.props.toggleLoginVisible}>
+        <TouchableOpacity style={styles.container} onPress={this._toggleLogin}>
           <View style={styles.loginFrame}>
             <View style={styles.title}>
               <Text style={[BaseStyles.text]}>

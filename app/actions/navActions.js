@@ -35,3 +35,9 @@ export const getAuth = (userName) => {
       }, 2000)
     }
 }
+
+export const toggleLogin = () => {
+  return {
+    type: ActionTypes.TOGGLE_LOGIN
+  }
+}

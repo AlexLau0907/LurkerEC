@@ -31,7 +31,7 @@ class TabNavigator extends Component {
   _renderScene = (sceneProps) => {
     switch (sceneProps.scene.route.key) {
       case 'Home':
-        return (<Home />);
+        return (<Home {...this.props}/>);
       case 'Cart':
         return (<Cart />);
       case 'Personal':

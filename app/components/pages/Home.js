@@ -13,23 +13,24 @@ import {
 import ProductsListView from '../ProductsListView';
 import CarouselExample from '../CarouselExample';
 import BaseStyles from '../../constants/BaseStyles';
-import Login from './Login';
 import LoginContainer from '../../containers/AuthContainer';
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {loginVisible: false}
+    // this.state = {loginVisible: false}
   }
 
   _toggleLoginVisible = () => {
-    this.setState({loginVisible: this.state.loginVisible ? false : true});
+    // this.setState({loginVisible: this.state.loginVisible ? false : true});
+    const { toggleLogin } = this.props;
+    toggleLogin();
   }
 
   render() {
     return(
       <View style={[BaseStyles.container]}>
-        <LoginContainer styel={{flex:1}} visible={this.state.loginVisible} toggleLoginVisible = {this._toggleLoginVisible} />
+        <LoginContainer style={{flex:1}} />
         <View style={styles.header}>
           <TouchableOpacity style={styles.headerLogin} onPress={this._toggleLoginVisible}>
             <Text style={[BaseStyles.text]}>Login</Text>
