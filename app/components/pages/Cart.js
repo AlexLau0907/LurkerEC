@@ -10,12 +10,15 @@ import {
 import BaseStyles from '../../constants/BaseStyles';
 
 class Cart extends Component {
-  constructor(props) {
-    super(props);
+
+  shouldComponentUpdate(nextProps) {
+    const {index, routes} = nextProps.navigationState;
+    return routes[index].key === "Cart"
+      && this.props.navigationState.index === index;
   }
 
   render() {
-    return(
+    return (
       <View style={BaseStyles.container}>
         <Text>Cart Page</Text>
       </View>

@@ -7,7 +7,6 @@ const {
 
 const initialState = {
   index: 0,
-  key: 'App',
   routes: [{ 'key': 'Home' }]
 };
 

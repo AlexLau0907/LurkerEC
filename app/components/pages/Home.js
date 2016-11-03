@@ -18,6 +18,12 @@ import LoginContainer from '../../containers/AuthContainer';
 
 class Home extends Component {
 
+shouldComponentUpdate(nextProps) {
+    const {index, routes} = nextProps.navigationState;
+    return routes[index].key === "Home"
+      && this.props.navigationState.index === index;
+  }
+
   _toggleLoginVisible = () => {
     // this.setState({loginVisible: this.state.loginVisible ? false : true});
     const { toggleLogin } = this.props;
@@ -37,7 +43,7 @@ class Home extends Component {
           </View>
         </View>
         <CarouselExample />
-        <ProductsContainer style={styles.productslist}/>
+        <ProductsContainer style={styles.productslist} />
       </View>
     );
   }

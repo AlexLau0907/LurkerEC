@@ -10,8 +10,11 @@ import {
 import BaseStyles from '../../constants/BaseStyles';
 
 class Personal extends Component {
-  constructor(props) {
-    super(props);
+
+  shouldComponentUpdate(nextProps) {
+    const {index, routes} = nextProps.navigationState;
+    return routes[index].key === "Personal"
+      && this.props.navigationState.index === index;
   }
 
   render() {

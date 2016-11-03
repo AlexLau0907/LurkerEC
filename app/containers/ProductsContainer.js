@@ -3,10 +3,9 @@ import { getProductList } from '../actions/productActions';
 import ProductsListView from '../components/ProductsListView'
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    productList: state.productListReducer
-  }
-}
+  return ({
+  productList: state.productListReducer
+})}
 
 export default HomeContainer = connect(
   mapStateToProps,

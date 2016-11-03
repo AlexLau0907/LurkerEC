@@ -44,7 +44,6 @@ class ProductsListView extends Component {
 
   _showProductList = () => {
     const {listDataSource} = this.props.productList;
-    console.log(listDataSource)
     return (<ListView
       contentContainerStyle={styles.list}
       dataSource={listDataSource}

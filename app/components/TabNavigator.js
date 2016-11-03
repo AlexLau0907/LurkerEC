@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 
 import Home from '../components/pages/Home';
-// import HomeContainer from '../containers/HomeContainer';
 import Cart from '../components/pages/Cart';
 import Personal from '../components/pages/Personal';
 import Footer from '../components/Footer';
@@ -24,33 +23,29 @@ class TabNavigator extends Component {
     super(props);
   }
 
-  _handleAction = (tab) => {
-    const {changeTab} = this.props;
-    changeTab(tab);
-  }
-
   _renderScene = (sceneProps) => {
     switch (sceneProps.scene.route.key) {
       case 'Home':
         return (<Home {...this.props}/>);
       case 'Cart':
-        return (<Cart />);
+        return (<Cart {...this.props}/>);
       case 'Personal':
-        return (<Personal />);
+        return (<Personal {...this.props}/>);
       default:
         return (<Home />);
     }
   }
 
   render() {
+    const {changeTab} = this.props;
     return (
       <View style={styles.container}>
         <NavigationCardStack
           navigationState={this.props.navigationState}
-          onNavigate={this._handleAction}
+          onNavigate={changeTab}
           renderScene={this._renderScene}>
         </NavigationCardStack>
-        <Footer style={styles.footer} handleAction={this._handleAction} />
+        <Footer style={styles.footer} handleAction={changeTab} />
       </View>
     );
   }

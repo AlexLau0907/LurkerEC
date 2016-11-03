@@ -37,7 +37,6 @@ const PRODUCTS_LIST = (() => THUMB_URLS.map((source, index, v) => ({
 
 let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 != r2 });
 ds = ds.cloneWithRows(PRODUCTS_LIST);
-console.log(ds)
 
 export const getProductList = (params) => {
   return (dispatch, getState) => {
