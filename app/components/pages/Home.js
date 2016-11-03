@@ -10,16 +10,13 @@ import {
   Platform
 } from 'react-native';
 
-import ProductsListView from '../ProductsListView';
+// import ProductsListView from '../ProductsListView';
+import ProductsContainer from '../../containers/ProductsContainer'
 import CarouselExample from '../CarouselExample';
 import BaseStyles from '../../constants/BaseStyles';
 import LoginContainer from '../../containers/AuthContainer';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    // this.state = {loginVisible: false}
-  }
 
   _toggleLoginVisible = () => {
     // this.setState({loginVisible: this.state.loginVisible ? false : true});
@@ -40,7 +37,7 @@ class Home extends Component {
           </View>
         </View>
         <CarouselExample />
-        <ProductsListView style={styles.productslist}/>
+        <ProductsContainer style={styles.productslist}/>
       </View>
     );
   }

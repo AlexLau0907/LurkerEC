@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import Home from '../components/pages/Home';
+// import HomeContainer from '../containers/HomeContainer';
 import Cart from '../components/pages/Cart';
 import Personal from '../components/pages/Personal';
 import Footer from '../components/Footer';
