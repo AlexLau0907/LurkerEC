@@ -34,7 +34,7 @@ class Tab extends Component {
   }
 
   _onPress = () => {
-    this.props.handleAction({type: CHANGE_TAB, key: this.props.title});
+    this.props.handleAction(this.props.title);
   }
 
   render() {

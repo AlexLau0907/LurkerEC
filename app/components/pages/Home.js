@@ -18,7 +18,7 @@ import LoginContainer from '../../containers/AuthContainer';
 
 class Home extends Component {
 
-shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps) {
     const {index, routes} = nextProps.navigationState;
     return routes[index].key === "Home"
       && this.props.navigationState.index === index;
@@ -31,14 +31,14 @@ shouldComponentUpdate(nextProps) {
   }
 
   render() {
-    return(
+    return (
       <View style={[BaseStyles.container]}>
-        <LoginContainer style={{flex:1}} />
+        <LoginContainer style={{ flex: 1 }} />
         <View style={styles.header}>
           <TouchableOpacity style={styles.headerLogin} onPress={this._toggleLoginVisible}>
             <Text style={[BaseStyles.text]}>Login</Text>
           </TouchableOpacity>
-          <View  style={styles.headerTitle}>
+          <View style={styles.headerTitle}>
             <Text style={[styles.headerText, BaseStyles.text]}>Header</Text>
           </View>
         </View>
@@ -50,23 +50,23 @@ shouldComponentUpdate(nextProps) {
 }
 const styles = StyleSheet.create({
   header: {
-    height:(Platform.OS === 'ios') ? 50: 40,
-    paddingTop: (Platform.OS === 'ios') ? 20: 8,
+    height: (Platform.OS === 'ios') ? 50 : 40,
+    paddingTop: (Platform.OS === 'ios') ? 20 : 8,
     paddingBottom: 8,
-    borderWidth: 1/PixelRatio.get(),
+    borderWidth: 1 / PixelRatio.get(),
     borderColor: 'gray',
     flexDirection: 'row'
   },
-  headerLogin:{
-    width:50,
-    height:40,
+  headerLogin: {
+    width: 50,
+    height: 40,
     marginLeft: 8,
     alignItems: 'center',
     justifyContent: 'center',
     paddingBottom: 12,
   },
   headerTitle: {
-    flex:1,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingRight: 58
