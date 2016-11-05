@@ -28,7 +28,6 @@ class TabNavigator extends Component {
         })
     }
     _renderScene = (sceneProps) => {
-      console.log(this.props.navigationState.views)
         const key = sceneProps.scene.route.key
         if (!!key) {
             return this.props.navigationState.views[key];

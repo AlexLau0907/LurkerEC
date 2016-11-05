@@ -1,9 +1,9 @@
 import *  as ActionTypes from '../constants/ActionTypes'
 
-export const addViews = (obj) => {
+export const addViews = (views) => {
   return {
     type: ActionTypes.ADD_VIEW,
-    views:obj
+    views
   }
 }
 
@@ -21,10 +21,10 @@ export const pop = (route) => {
   }
 }
 
-export const changeTab = (tabName) => {
+export const changeTab = (route) => {
   return {
     type: ActionTypes.CHANGE_TAB,
-    tabName:tabName
+    route
   }
 }
 

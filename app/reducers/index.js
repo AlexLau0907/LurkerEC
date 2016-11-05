@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import rootTabReducer from './rootTabReducer'
+import appNavReducer from './appNavReducer'
 import authReducer from './authReducer'
 import productListReducer from './productListReducer'
 
 const rootReducer = combineReducers({
-  rootTabReducer,
+  appNavReducer,
   authReducer,
   productListReducer
 })

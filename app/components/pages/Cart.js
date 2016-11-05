@@ -4,10 +4,12 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   NavigationExperimental
 } from 'react-native';
 
 import BaseStyles from '../../constants/BaseStyles';
+import CarouselExample from '../CarouselExample';
 
 class Cart extends Component {
 
@@ -17,10 +19,30 @@ class Cart extends Component {
       && this.props.navigationState.index === index;
   }
 
+  _route = () => {
+    const {addViews, push} = this.props;
+    const test = <View style={{...BaseStyles.container, ...BaseStyles.center }}>
+      <TouchableOpacity onPress={this.props.pop} >
+        <Text> Go Back</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={this._route} >
+        <Text> Go Ahead</Text>
+      </TouchableOpacity>
+    </View>
+    const viewName = "test" + Date.now();
+    const obj = {};
+    obj[viewName] = test;
+    const a = addViews(obj);
+    push(viewName);
+  }
+
   render() {
     return (
-      <View style={BaseStyles.container}>
+      <View style={{...BaseStyles.container, ...BaseStyles.center }}>
         <Text>Cart Page</Text>
+        <TouchableOpacity onPress={this._route}>
+          <Text>Next Page -></Text>
+        </TouchableOpacity>
       </View>
     );
   }

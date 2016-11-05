@@ -1,18 +1,19 @@
 import { connect } from 'react-redux'
 
-import { changeTab, toggleLogin, addViews } from '../actions/navActions'
-import { navigationState } from '../reducers/rootTabReducer'
-import TabNavigator from '../components/AppNavigator'
+import { changeTab, toggleLogin, addViews, push, pop } from '../actions/navActions'
+import AppNavigator from '../components/AppNavigator'
 
 const mapStateProps = (state) => ({
-  navigationState: state.rootTabReducer,
+  navigationState: state.appNavReducer,
 })
 
 export default AppContainer = connect(
   mapStateProps,
   {
-    changeTab: (tabName) => changeTab(tabName),
+    push: (route) => push(route),
+    pop: (route) => pop(route),
+    changeTab: (route) => changeTab(route),
     toggleLogin: () => toggleLogin(),
-    addViews: (obj) => addViews(obj)
+    addViews: (viewObjs) => addViews(viewObjs)
   }
-)(TabNavigator);
+)(AppNavigator);
