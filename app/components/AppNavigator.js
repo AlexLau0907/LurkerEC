@@ -36,12 +36,12 @@ class TabNavigator extends Component {
     }
 
     render() {
-        const {changeTab} = this.props;
+        const {changeTab, pop} = this.props;
         return (
             <View style={styles.container}>
                 <NavigationCardStack
+                    onNavigateBack={pop}
                     navigationState={this.props.navigationState}
-                    onNavigate={changeTab}
                     renderScene={this._renderScene}>
                 </NavigationCardStack>
                 <Footer style={styles.footer} handleAction={changeTab} />

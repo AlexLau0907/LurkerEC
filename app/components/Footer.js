@@ -8,14 +8,9 @@ import {
   PixelRatio
 } from 'react-native'
 
-import { CHANGE_TAB } from '../constants/ActionTypes';
-
 import BaseStyles from '../constants/BaseStyles';
 
 class Footer extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
