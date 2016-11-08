@@ -1,4 +1,4 @@
-{
+export const DemoData = {
   "success": true,
   "total": 68,
   "data": [
