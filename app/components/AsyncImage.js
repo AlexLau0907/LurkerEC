@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import {
   View,
   Image,
-  ActivityIndicator
+  ActivityIndicator,
+  Platform
 } from 'react-native';
 
 import RNFetchBlob from 'react-native-fetch-blob';
@@ -32,14 +33,16 @@ class AsyncImage extends Component {
   }
 
   _fetch = (uri) => {
-    this._downloadTack = RNFetchBlob.fetch('GET', uri);
-      this._downloadTack.then((res) => {
-        // the conversion is done in native code
-        let base64Str = res.base64();
-        if (this._isMounted)
-          this.setState({ source: { uri: 'data:image/*;base64,' + base64Str } });
-        return;
-      })
+    this._downloadTack = RNFetchBlob.config({
+      fileCache: true,
+      appendExt: this.props.ext || 'png'
+    }).fetch('GET', uri);
+    this._downloadTack.then((res) => {
+      const tempPath = Platform.OS === 'ios' ? res.path() : 'file://' + res.path();
+      if (this._isMounted)
+        this.setState({ source: { uri: tempPath } });
+      return;
+    })
       // Status code is not 200
       .catch((errorMessage, statusCode) => {
         // error handling
@@ -50,8 +53,8 @@ class AsyncImage extends Component {
   render() {
     return (
       !!this.props.placeHolder || this.state.source ?
-      <Image source={this.state.source} style={this.props.style} />
-      : <ActivityIndicator style={this.props.style} color='blue'/>
+        <Image source={this.state.source} style={this.props.style} />
+        : <ActivityIndicator style={this.props.style} color='blue' />
     );
   }
 }
