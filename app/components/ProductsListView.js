@@ -15,15 +15,22 @@ import AsyncImage from './AsyncImage'
 
 class ProductsListView extends Component {
 
-  componentDidMount() {
-    const { getProductList } = this.props;
+  constructor(props) {
+    super(props);
+    const { getProductList } = props;
     getProductList('text');
   }
+
+  shouldComponentUpdate(nextProps) {
+    return this.props.productList.listDataSource !== nextProps.productList.listDataSource;
+  }
+
   _renderRow = (rowData) => {
+    console.log('row rendering')
     return (
       <TouchableOpacity onPress={() => alert('Product presseds')}>
         <View style={styles.row}>
-          <AsyncImage style={styles.thumb} placeHolder={require('./Thumbnails/heart.png')} source={rowData.uri} />
+          <AsyncImage style={styles.thumb} source={rowData.uri} />
           <Text>{rowData.index}</Text>
         </View>
       </TouchableOpacity>
@@ -54,6 +61,7 @@ class ProductsListView extends Component {
       />)
   }
   render() {
+    console.log('product list rendering')
     const {isLoading} = this.props.productList;
     return isLoading ? this._showIndicator() : this._showProductList();
   }
@@ -78,8 +86,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   thumb: {
-    width: 64,
-    height: 64
+    width: 180,
+    height: 180,
   }
 });
 

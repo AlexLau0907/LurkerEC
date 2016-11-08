@@ -46,7 +46,7 @@ export const getProductList = (params) => {
         type: ActionTypes.GET_PRODUCT_LIST,
         listDataSource: ds
       }
-    ), 10000);
+    ), 100);
   }
 }
 
