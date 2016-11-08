@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import {
   View,
-  Image
+  Image,
+  ActivityIndicator
 } from 'react-native';
 
 import RNFetchBlob from 'react-native-fetch-blob';
@@ -48,7 +49,9 @@ class AsyncImage extends Component {
 
   render() {
     return (
+      !!this.props.placeHolder || this.state.source ?
       <Image source={this.state.source} style={this.props.style} />
+      : <ActivityIndicator style={this.props.style} color='blue'/>
     );
   }
 }
