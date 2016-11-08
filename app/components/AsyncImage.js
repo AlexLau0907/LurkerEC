@@ -22,14 +22,21 @@ class AsyncImage extends Component {
 
   componentDidMount() {
     this._fetch(this.props.source.uri);
+    this._isMounted = true;
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+    this._downloadTack.cancel((err) => console.log(err));
   }
 
   _fetch = (uri) => {
-    RNFetchBlob.fetch('GET', uri)
-      .then((res) => {
+    this._downloadTack = RNFetchBlob.fetch('GET', uri);
+      this._downloadTack.then((res) => {
         // the conversion is done in native code
         let base64Str = res.base64();
-        this.setState({ source: { uri: 'data:image/*;base64,' + base64Str } });
+        if (this._isMounted)
+          this.setState({ source: { uri: 'data:image/*;base64,' + base64Str } });
         return;
       })
       // Status code is not 200
