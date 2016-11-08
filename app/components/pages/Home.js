@@ -31,6 +31,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log('Home rendering');
     return (
       <View style={[BaseStyles.container]}>
         <LoginContainer style={{ flex: 1 }} />

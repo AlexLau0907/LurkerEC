@@ -21,15 +21,16 @@ class Cart extends Component {
 
   _route = () => {
     const {addViews, push} = this.props;
-    const test = <View style={{...BaseStyles.container, ...BaseStyles.center }}>
-      <TouchableOpacity onPress={this.props.pop} >
+    const viewName = "test" + Date.now();
+    const test = (props) => <View style={{...BaseStyles.container, ...BaseStyles.center }}>
+      <TouchableOpacity onPress={props.pop} >
         <Text> Go Back</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={this._route} >
         <Text> Go Ahead</Text>
       </TouchableOpacity>
+      <Text>SubView {viewName}</Text>
     </View>
-    const viewName = "test" + Date.now();
     const obj = {};
     obj[viewName] = test;
     const a = addViews(obj);
