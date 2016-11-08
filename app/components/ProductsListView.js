@@ -27,11 +27,16 @@ class ProductsListView extends Component {
 
   _renderRow = (rowData) => {
     console.log('row rendering')
+    const {uri, name, price, comments} = rowData;
     return (
-      <TouchableOpacity onPress={() => alert('Product presseds')}>
+      <TouchableOpacity onPress={() => alert(name)}>
         <View style={styles.row}>
-          <AsyncImage style={styles.thumb} source={rowData.uri} />
-          <Text>{rowData.index}</Text>
+          <AsyncImage style={styles.thumb} source={uri} ext='jpg' />
+          <Text style={styles.name} numberOfLines={3}>{name}</Text>
+          <View style={styles.infoRow}>
+            <Text style={styles.price}>{price}</Text>
+            <Text style={styles.comments}>{comments}</Text>
+          </View>
         </View>
       </TouchableOpacity>
     )
@@ -88,6 +93,28 @@ const styles = StyleSheet.create({
   thumb: {
     width: 180,
     height: 180,
+  },
+  name: {
+    height: 56,
+    padding: 3
+  },
+  infoRow: {
+    backgroundColor: '#efefef',
+    paddingTop: 10,
+    paddingBottom: 5,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  price: {
+    flex: 1,
+    color: "red",
+    fontSize: 18
+  },
+  comments: {
+    flex: 1,
+    textAlign: 'right',
+    marginRight: 6,
+    paddingTop: 5
   }
 });
 

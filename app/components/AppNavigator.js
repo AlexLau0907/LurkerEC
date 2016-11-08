@@ -72,7 +72,6 @@ class TabNavigator extends Component {
           key={'Stack_' + routes[index].key}
           // {onNavigateBack={pop}}
           navigationState={this.props.navigationState}
-          renderHeader={this._renderHeader}
           renderScene={this._renderScene}>
         </NavigationCardStack>
         <Footer style={styles.footer} handleAction={changeTab} />

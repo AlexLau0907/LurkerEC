@@ -1,10 +1,11 @@
-export const DemoData = {
+export default DemoData = {
   "success": true,
   "total": 68,
   "data": [
     {
       "name": "悠宁软胶囊 (规格:90粒)",
       "image": "1474263943718.悠宁.jpg",
+      "comments": 38,
       "id": 34,
       "product": {
         "Model": "Product",
@@ -28,6 +29,7 @@ export const DemoData = {
     {
       "name": "南瓜籽软胶囊  (规格:100粒)",
       "image": "1474261782779.南瓜籽.jpg",
+      "comments": 20,
       "id": 28,
       "product": {
         "Model": "Product",
@@ -51,6 +53,7 @@ export const DemoData = {
     {
       "name": "葡萄糖胺MSM锭 (容量:120锭)",
       "image": "1474277195968.TB2Ld4PkVXXXXaUXXXXXXXXXXXX_!!2759217931.jpg",
+      "comments": 45,
       "id": 1,
       "product": {
         "Model": "Product",
@@ -73,6 +76,7 @@ export const DemoData = {
     {
       "name": "白内障早恢复套餐（晶亮叶黄胶囊+视觉系统疾病易感基因检测） (规格:1瓶+1次)",
       "image": "1477993964734.白内障早恢复套餐.jpg",
+      "comments": 98,
       "id": 82,
       "product": {
         "Model": "Product",
@@ -94,6 +98,7 @@ export const DemoData = {
     {
       "name": "纯化绿茶素胶囊 (容量:90粒)",
       "image": "1474265066015.TB2okjmlVXXXXalXpXXXXXXXXXX_!!2759217931.jpg",
+      "comments": 30,
       "id": 52,
       "product": {
         "Model": "Product",
@@ -117,6 +122,7 @@ export const DemoData = {
     {
       "name": "活力五味子锭  14锭 (规格:14锭/盒)",
       "image": "1476337940045.5味子.jpg",
+      "comments": 48,
       "id": 61,
       "product": {
         "Model": "Product",
@@ -138,6 +144,7 @@ export const DemoData = {
     {
       "name": "特浓白高颗双倍plus弹力添加版 (规格:500毫克/顆×60顆)",
       "image": "1474264722453.TB2V8AAqpXXXXblXpXXXXXXXXXX_!!2759217931.jpg",
+      "comments": 68,
       "id": 48,
       "product": {
         "Model": "Product",
@@ -159,7 +166,8 @@ export const DemoData = {
     },
     {
       "name": "脑血管疾病易感基因检测 (规格:1件)",
-      "image": "1476863546718.主图.jpg,""id": 69,
+      "image": "1476863546718.主图.jpg",
+      "comments": 668,
       "product": {
         "Model": "Product",
         "id": 71,
@@ -180,6 +188,7 @@ export const DemoData = {
     {
       "name": "纤体紧致套餐（轻魅甲壳质胶囊+常宝优菌+健康节食减肥基因检测） (规格:1瓶+1瓶+1次)",
       "image": "1477993976796.纤体紧致套餐.jpg",
+      "comments": 108,
       "id": 77,
       "product": {
         "Model": "Product",
@@ -201,6 +210,7 @@ export const DemoData = {
     {
       "name": "纳麹Q10胶囊  (容量:90粒)",
       "image": "1454566091981.主图3.jpg",
+      "comments": 88,
       "id": 2,
       "product": {
         "Model": "Product",
@@ -224,6 +234,7 @@ export const DemoData = {
     {
       "name": "柠檬酸钙锭  (规格:120锭)",
       "image": "1474264107093.TB2tWsQnFXXXXazXFXXXXXXXXXX_!!2759217931.jpg",
+      "comments": 28,
       "id": 14,
       "product": {
         "Model": "Product",
@@ -244,6 +255,7 @@ export const DemoData = {
     },
     {
       "name": "大豆美研锭  (尺寸:120锭)",
+      "comments": 338,
       "image": "1474261900373.大豆.jpg",
       "id": 29,
       "product": {

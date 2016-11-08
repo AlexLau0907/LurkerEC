@@ -44,3 +44,5 @@ android/keystores/debug.keystore
 .vscode/launchReactNative.js
 
 .vscode/launchReactNative.js
+
+typings/react-native.d.ts
