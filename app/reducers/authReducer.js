@@ -6,14 +6,14 @@ const initialState = {
   loginVisible: false,
 };
 
-export default authState = (state = initialState, action) => {
+export default authInfo = (state = initialState, action) => {
   switch (action.type) {
     case USER_AUTH:
-      if (action.payload.isAuth) {
+      if (action.authInfo.isAuth) {
         // const {payload} = action;
         return {
           ...state,
-          ...action.payload,
+          ...action.authInfo,
         };
       }
       break;

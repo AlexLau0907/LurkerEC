@@ -23,10 +23,7 @@ class Footer extends Component {
   }
 }
 
-class Tab extends Component {
-  constructor(props) {
-    super(props);
-  }
+class Tab extends Component {s
 
   _onPress = () => {
     this.props.handleAction(this.props.title);

@@ -15,7 +15,7 @@ const initialState = {
 
 
 export default navigationsState = (state = initialState, action) => {
-  const rootViews = state.rootViews;
+  const { rootViews } = state;
   const rootViewIndex = rootViews.index;
   const rootViewName = rootViews.routes[rootViewIndex].key;
   const navigationState = state[rootViewName];

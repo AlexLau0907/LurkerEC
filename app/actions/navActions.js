@@ -49,7 +49,7 @@ export const getAuth = (userName) => {
     setTimeout(() => {
       dispatch({
         type: ActionTypes.USER_AUTH,
-        payload: {
+        authInfo: {
           isAuth: true,
           user: 'alex'
         }
