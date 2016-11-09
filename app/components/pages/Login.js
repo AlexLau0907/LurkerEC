@@ -5,21 +5,12 @@ import {
   Modal,
   Image,
   TouchableOpacity,
-  PixealRatio,
   StyleSheet
 } from 'react-native'
 
 import BaseStyles from '../../constants/BaseStyles';
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    //to prevet login view re-render
-    return this.props.authState.loginVisible || nextProps.authState.loginVisible;
-  }
 
   _toggleLogin = () => {
     const { toggleLogin } = this.props;
@@ -73,7 +64,6 @@ const styles = StyleSheet.create({
     borderColor: '#F6F6F6',
   },
   title: {
-    flex: 1,
     height: 40,
     backgroundColor: '#1cadf7',
     borderTopLeftRadius: 5,
