@@ -19,17 +19,9 @@ export default navigationsState = (state = initialState, action) => {
   const rootViewIndex = rootViews.index;
   const rootViewName = rootViews.routes[rootViewIndex].key;
   const navigationState = state[rootViewName];
-  // if (!!navigationState && NavigationStateUtils.has(navigationState, action.route)) {
-  //   nextState = NavigationStateUtils.jumpTo(navigationState, action.route);
-  //   return {
-  //     ...state,
-  //     [rootViewName]: nextState
-  //   }
-  // }
+
   switch (action.type) {
     case ActionTypes.CHANGE_TAB: {
-      console.log(state.rootViews);
-
       const nextState = NavigationStateUtils.jumpTo(state.rootViews, action.route);
       if (state.rootViews !== nextState) {
         return {
