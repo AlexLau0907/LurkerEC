@@ -1,9 +1,16 @@
 import *  as ActionTypes from '../constants/ActionTypes'
 
-export const addViews = (views) => {
+export const addRootViews = (viewProducers) => {
+  return {
+    type: ActionTypes.ADD_ROOT_VIEWS,
+    viewProducers
+  }
+}
+
+export const addView = (viewProducer) => {
   return {
     type: ActionTypes.ADD_VIEW,
-    views
+    viewProducer
   }
 }
 

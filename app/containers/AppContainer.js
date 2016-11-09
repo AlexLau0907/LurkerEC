@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { changeTab, toggleLogin, addViews, push, pop } from '../actions/navActions'
+import {addRootViews, addView, changeTab, toggleLogin, push, pop } from '../actions/navActions'
 import AppNavigator from '../components/AppNavigator'
 
 const mapStateProps = (state) => ({
@@ -14,6 +14,7 @@ export default AppContainer = connect(
     pop: (route) => pop(route),
     changeTab: (route) => changeTab(route),
     toggleLogin: () => toggleLogin(),
-    addViews: (viewObjs) => addViews(viewObjs)
+    addView: (viewProducer) => addView(viewProducer),
+    addRootViews: (viewProducers) => addRootViews(viewProducers)
   }
 )(AppNavigator);

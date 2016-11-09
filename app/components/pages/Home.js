@@ -18,12 +18,6 @@ import LoginContainer from '../../containers/AuthContainer';
 
 class Home extends Component {
 
-  shouldComponentUpdate(nextProps) {
-    const {index, routes} = nextProps.navigationState;
-    return routes[index].key === "Home"
-      && this.props.navigationState.index === index;
-  }
-
   _toggleLoginVisible = () => {
     // this.setState({loginVisible: this.state.loginVisible ? false : true});
     const { toggleLogin } = this.props;
@@ -31,7 +25,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log('Home rendering');
     return (
       <View style={[BaseStyles.container]}>
         <LoginContainer style={{ flex: 1 }} />

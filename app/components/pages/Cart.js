@@ -13,14 +13,8 @@ import CarouselExample from '../CarouselExample';
 
 class Cart extends Component {
 
-  shouldComponentUpdate(nextProps) {
-    const {index, routes} = nextProps.navigationState;
-    return routes[index].key === "Cart"
-      && this.props.navigationState.index === index;
-  }
-
   _route = () => {
-    const {addViews, push} = this.props;
+    const {addView, push} = this.props;
     const viewName = "test" + Date.now();
     const test = (props) => <View style={{...BaseStyles.container, ...BaseStyles.center }}>
       <TouchableOpacity onPress={props.pop} >
@@ -33,7 +27,7 @@ class Cart extends Component {
     </View>
     const obj = {};
     obj[viewName] = test;
-    const a = addViews(obj);
+    const a = addView(obj);
     push(viewName);
   }
 

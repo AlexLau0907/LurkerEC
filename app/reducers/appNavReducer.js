@@ -6,31 +6,103 @@ const {
 
 
 const initialState = {
-  index: 0,
-  views: {},
-  routes: [{ 'key': 'Home' }],
+  viewProducers: {},
+  rootViews: {
+    index: 0,
+    routes: [{ 'key': 'Home' }],
+  },
 };
 
 
 export default navigationsState = (state = initialState, action) => {
-  if (NavigationStateUtils.has(state, action.route)) {
-    return NavigationStateUtils.jumpTo(state, action.route);
-  }
+  const rootViews = state.rootViews;
+  const rootViewIndex = rootViews.index;
+  const rootViewName = rootViews.routes[rootViewIndex].key;
+  const navigationState = state[rootViewName];
+  // if (!!navigationState && NavigationStateUtils.has(navigationState, action.route)) {
+  //   nextState = NavigationStateUtils.jumpTo(navigationState, action.route);
+  //   return {
+  //     ...state,
+  //     [rootViewName]: nextState
+  //   }
+  // }
   switch (action.type) {
-    case ActionTypes.CHANGE_TAB:
-    case ActionTypes.PUSH_ROUTE:
-      return NavigationStateUtils.push(state, { key: action.route });
-    case ActionTypes.POP_ROUTE:
-      return NavigationStateUtils.pop(state);
-    case ActionTypes.ADD_VIEW:
-      return nextSate = {
+    case ActionTypes.CHANGE_TAB: {
+      console.log(state.rootViews);
+
+      const nextState = NavigationStateUtils.jumpTo(state.rootViews, action.route);
+      if (state.rootViews !== nextState) {
+        return {
         ...state,
-        views: {
-          ...state.views,
-          ...action.views
+          rootViews: {...nextState }
+        };
+      }
+      break;
+    }
+
+    case ActionTypes.PUSH_ROUTE: {
+      const nextState = NavigationStateUtils.push(navigationState, { key: action.route });
+      console.log(rootViewName);
+      if (navigationState !== nextState) {
+        const tmp = {
+        ...state,
+          [rootViewName]: nextState
         }
+        console.log(tmp)
+        return tmp;
+      }
+      break;
+    }
+    
+    case ActionTypes.POP_ROUTE: {
+      const nextState = NavigationStateUtils.pop(navigationState);
+      if (navigationState !== nextState) {
+        return {
+          ...state,
+          [rootViewName]: nextState
+        }
+      }
+      break;
+    }
+
+    case ActionTypes.ADD_ROOT_VIEWS: {
+      const viewProducers = action.viewProducers;
+      if (!viewProducers) return state;
+      const viewNames = Object.keys(viewProducers);
+      const rootRouteKeys = viewNames.map((name) => ({
+        key: name
+      }));
+      const rootViews = {
+        index: 0,
+        routes: [...rootRouteKeys]
       };
+      const subRoutes = {};
+      for (let i = 0; i < viewNames.length; i++) {
+        subRoutes[viewNames[i]] = {
+          index: 0,
+          routes: [{ key: viewNames[i] }]
+        }
+      }
+      return {
+        ...state,
+        viewProducers: {...action.viewProducers },
+        rootViews: {...rootViews },
+        ...subRoutes
+      };
+    }
+
+    case ActionTypes.ADD_VIEW: {
+      return !!state.viewProducers[Object.keys(action.viewProducer)] ? state :
+        {
+        ...state,
+          viewProducers: {
+          ...state.viewProducers,
+          ...action.viewProducer
+          }
+        };
+    }
     default:
-      return state;
+      break;
   }
+  return state;
 }

@@ -1,3 +1,4 @@
+export const ADD_ROOT_VIEWS = 'ADD_ROOT_VIEWS';
 export const ADD_VIEW = 'ADD_VIEW';
 export const PUSH_ROUTE = 'PUSH_ROUTE';
 export const POP_ROUTE = 'POP_ROUTE';

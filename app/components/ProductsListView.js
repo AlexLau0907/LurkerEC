@@ -21,12 +21,7 @@ class ProductsListView extends Component {
     getProductList('text');
   }
 
-  shouldComponentUpdate(nextProps) {
-    return this.props.productList.listDataSource !== nextProps.productList.listDataSource;
-  }
-
   _renderRow = (rowData) => {
-    console.log('row rendering')
     const {uri, name, price, comments} = rowData;
     return (
       <TouchableOpacity onPress={() => alert(name)}>
@@ -66,7 +61,6 @@ class ProductsListView extends Component {
       />)
   }
   render() {
-    console.log('product list rendering')
     const {isLoading} = this.props.productList;
     return isLoading ? this._showIndicator() : this._showProductList();
   }

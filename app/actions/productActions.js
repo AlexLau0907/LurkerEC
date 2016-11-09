@@ -15,7 +15,6 @@ let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 != r2 });
 ds = ds.cloneWithRows(PRODUCTS_LIST);
 
 export const getProductList = (params) => {
-  console.log(DemoData);
   return (dispatch, getState) => {
 
     setTimeout(() => dispatch(

@@ -22,7 +22,7 @@ const {
 class TabNavigator extends Component {
   constructor(props) {
     super(props);
-    this.props.addViews({
+    this.props.addRootViews({
       "Home": (props) => <Home {...props} />,
       "Cart": (props) => <Cart {...props} />,
       "Personal": (props) => <Personal {...props} />
@@ -56,8 +56,8 @@ class TabNavigator extends Component {
     const navIndex = sceneProps.navigationState.index;
     if (index === sceneProps.navigationState.index) {
       if (!!key) {
-        const viewMaker = this.props.navigationState.views[key];
-        return !viewMaker ? undefined : viewMaker(this.props);
+        const viewProducer = this.props.navigationState.viewProducers[key];
+        return !viewProducer ? undefined : viewProducer(this.props);
       }
       return (<View style={styles.container}><Text>.oOPs,error</Text></View>);
     }
@@ -65,17 +65,20 @@ class TabNavigator extends Component {
 
   render() {
     const {changeTab, pop, navigationState} = this.props;
-    const {routes, index} = navigationState;
+    const {rootViews} = navigationState;
+    const rootViewIndex = rootViews.index;
+    const rootViewKey = rootViews.routes[rootViewIndex].key;
+    const currentNavigationSate = navigationState[rootViewKey];
     return (
-      <View style={styles.container}>
+      !!currentNavigationSate ? <View style={styles.container}>
         <NavigationCardStack
-          key={'Stack_' + routes[index].key}
+          key={'Stack_' + rootViewKey}
           // {onNavigateBack={pop}}
-          navigationState={this.props.navigationState}
+          navigationState={currentNavigationSate}
           renderScene={this._renderScene}>
         </NavigationCardStack>
         <Footer style={styles.footer} handleAction={changeTab} />
-      </View>
+      </View> : null
     );
   }
 };
