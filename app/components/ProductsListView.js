@@ -11,6 +11,9 @@ import {
   ActivityIndicator
 } from 'react-native'
 
+const WindowSize = {width, height} = Dimensions.get('window');
+const thumbWidth = WindowSize.width/2 - 13;
+
 import AsyncImage from './AsyncImage'
 
 class ProductsListView extends Component {
@@ -85,8 +88,9 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   thumb: {
-    width: 180,
-    height: 180,
+    marginTop: 4,
+    width: thumbWidth,
+    height:  thumbWidth,
   },
   name: {
     height: 56,
@@ -94,7 +98,7 @@ const styles = StyleSheet.create({
   },
   infoRow: {
     backgroundColor: '#efefef',
-    paddingTop: 10,
+    paddingTop: 5,
     paddingBottom: 5,
     flexDirection: 'row',
     alignItems: 'flex-start',

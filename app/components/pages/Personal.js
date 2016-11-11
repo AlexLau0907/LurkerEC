@@ -9,19 +9,28 @@ import {
 } from 'react-native';
 
 import BaseStyles from '../../constants/BaseStyles';
+import SampleChart from '../SampleChart'
 
 class Personal extends Component {
-  
-  _onButtonPress = (e) => console.log(e)
+  constructor(props) {
+    super(props)
+    this.state = {
+      showData: false
+    }
+  }
+  _onButtonPress = () => {
+    this.setState({showData: !this.state.showData})
+  }
 
   render() {
-    return(
-      <View style={BaseStyles.container, {alignItems: 'center', justifyContent: 'center'}} >
-        <Text>Personal Page</Text>
-        <Button title="textButton" onPress={this._onButtonPress} />
-      </View>
+    return (
+      <View style={BaseStyles.container, {justifyContent: 'center', alignItems:'center', marginTop: 64}} >
+        <Text>Personal Data</Text>
+        <Button title="ShowData" onPress={this._onButtonPress} />
+        {this.state.showData ? <SampleChart /> :null}
+      </View >
     );
   }
 }
 
-export default Personal;
+export default Personal
