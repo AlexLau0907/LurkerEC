@@ -42,7 +42,9 @@ class SampleChart extends Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingLeft: 4,
+    paddingRight: 4
   }
 })
 
